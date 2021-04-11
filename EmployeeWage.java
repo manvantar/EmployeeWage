@@ -10,6 +10,10 @@ public class EmployeeWage {
 
     public static void main(String[] args) {
         System.out.println("Welcome to employee wage problem");
+        int totalWage=calculateWage();
+
+    }
+    public static int calculateWage(){
         Random rand = new Random();
         int daysWorked=0;
         int TotalHours = 0;
@@ -33,16 +37,17 @@ public class EmployeeWage {
             }
             TotalHours += hours;
             if(TotalHours<=max_hours) {
-            oneDayWage = wagePerHour * hours;
-            montlyWage = montlyWage + oneDayWage;
+                oneDayWage = wagePerHour * hours;
+                montlyWage = montlyWage + oneDayWage;
             }
             else{
-            TotalHours=TotalHours-hours;
+                TotalHours=TotalHours-hours;
             }
-        daysWorked=i;
+            daysWorked=i;
         }
         System.out.println("Today working days= "+daysWorked);
         System.out.println("TotalHours= "+TotalHours);
         System.out.println("MonthlyWage= "+montlyWage);
+        return montlyWage;
     }
 }
