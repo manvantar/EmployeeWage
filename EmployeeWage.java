@@ -11,6 +11,7 @@ public class EmployeeWage {
         Random rand=new Random();
         int attendance=rand.nextInt(10)%2;
         int fullTimeHours=8;
+        int partTimeHours=8;
         int oneDayWage= wagePerHour*fullTimeHours;
 
 
