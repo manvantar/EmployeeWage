@@ -3,17 +3,19 @@ import java.util.Random;
 
 
 public class EmployeeWage {
+     String companyName;
+     int wagePerHour;
+     int max_hours;
+     int max_working_days;
 
-     static int wagePerHour = 20;
-     static int max_hours=100;
-     static int max_working_days=20;
+     EmployeeWage(String companyName,int wagePerHour,int max_hours,int max_working_days){
+         this.wagePerHour=wagePerHour;
+         this.max_hours=max_hours;
+         this.max_working_days=max_working_days;
+         this.companyName=companyName;
+     }
 
-    public static void main(String[] args) {
-        System.out.println("Welcome to employee wage problem");
-        int totalWage=calculateWage();
-
-    }
-    public static int calculateWage(){
+    public  int calculateWage(){
         Random rand = new Random();
         int daysWorked=0;
         int TotalHours = 0;
@@ -21,7 +23,7 @@ public class EmployeeWage {
         int oneDayWage = 0;
         int montlyWage = 0;
 
-        for (int i = 0;i<=max_working_days && TotalHours< max_hours ; i++) {
+        for (int i = 0;i<=this.max_working_days && TotalHours<this.max_hours ; i++) {
             int typeOfEmployee = rand.nextInt(10) % 3;
 
             switch (typeOfEmployee) {
@@ -36,8 +38,8 @@ public class EmployeeWage {
                     break;
             }
             TotalHours += hours;
-            if(TotalHours<=max_hours) {
-                oneDayWage = wagePerHour * hours;
+            if(TotalHours<=this.max_hours) {
+                oneDayWage = this.wagePerHour * hours;
                 montlyWage = montlyWage + oneDayWage;
             }
             else{
